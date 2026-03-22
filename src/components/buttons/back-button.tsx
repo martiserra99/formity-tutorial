@@ -4,12 +4,16 @@ import { useFormContext } from "react-hook-form";
 
 import { Button } from "../button";
 
-interface BackButtonProps extends ComponentPropsWithoutRef<"button"> {
-  onBack: (values: object) => void;
+interface BackButtonProps<T extends Record<string, unknown>>
+  extends ComponentPropsWithoutRef<"button"> {
+  onBack: (values: T) => void;
 }
 
-export function BackButton({ onBack, ...props }: BackButtonProps) {
-  const { getValues } = useFormContext();
+export function BackButton<T extends Record<string, unknown>>({
+  onBack,
+  ...props
+}: BackButtonProps<T>) {
+  const { getValues } = useFormContext<T>();
   return (
     <Button
       type="button"
