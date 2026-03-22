@@ -16,9 +16,9 @@ import { NextButton } from "./components/buttons/next-button";
 import { Output } from "./components/output";
 
 export default function App() {
-  const [output, setOutput] = useState<object | null>(null);
+  const [output, setOutput] = useState<unknown>(null);
 
-  const onSubmit = useCallback((output: object) => {
+  const onSubmit = useCallback((output: unknown) => {
     setOutput(output);
   }, []);
 
